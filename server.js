@@ -1,8 +1,7 @@
 const express = require('express')
 const mongoose =require('mongoose')
-require("dotenv").config(); 
 
-mongoose.connect(process.env.DB_URL).
+mongoose.connect("mongodb+srv://czar:0698115172@prog.23wn0.mongodb.net/myFirstDatabase?retryWrites=true&w=majority").
 catch(err=>console.log(err));
 
 const db = mongoose.connection;
