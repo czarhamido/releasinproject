@@ -10,12 +10,7 @@ db.once('open', () => console.log('Connected to Database'));
 const app = express()
 const cors =require("cors")
 
-app.use(cors({
-  origin:'http://localhost:5000',
-  optionsSuccessStatus: 200 ,// For legacy browser support
-  methods: "GET, PUT",
-  allowedHeaders:'*'
-}));
+app.use(cors());
 
 app.use(express.json());
 
