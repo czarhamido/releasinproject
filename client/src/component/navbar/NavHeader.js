@@ -12,7 +12,7 @@ function NavHeader() {
             <Link id="RouterNavLink" to='/' style={{ textDecoration: 'none' ,color:"#FFF",marginRight:12}}>Product Type</Link>
             </Nav>
             <Nav>
-            <Link id="RouterNavLink" to='/product' style={{ textDecoration: 'none' ,color:"#FFF",marginRight:12}}>Product</Link>
+            <Link id="RouterNavLink" to='/prod' style={{ textDecoration: 'none' ,color:"#FFF",marginRight:12}}>Product</Link>
             </Nav>
           </Nav>
         </Container>

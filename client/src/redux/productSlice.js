@@ -1,6 +1,6 @@
 import { createSlice ,createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-const uri='mongodb+srv://czar:0698115172@prog.23wn0.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+const uri='http://localhost:5000'
 const initialState = {
   data:[]
 };
