@@ -1,7 +1,7 @@
 const express = require('express')
 const mongoose =require('mongoose')
 
-mongoose.connect("mongodb+srv://ahmeidi:0698115172hamido@main.rttby.mongodb.net/myFirstDatabase?retryWrites=true&w=majority");
+mongoose.connect("mongodb+srv://czar:0698115172@prog.23wn0.mongodb.net/myFirstDatabase?retryWrites=true&w=majority");
 
 const db = mongoose.connection;
 db.on('error', (error) => console.error(error));
@@ -14,6 +14,18 @@ app.use(cors());
 
 app.use(express.json());
 
+app.use(express.static('client/build'));
+app.get("*",cors(),(req,res)=>{
+  res.sendFile(`${__dirname}/client/build/index.html`)
+})
+
+app.use((req,res,next)=>{
+  res.setHeader("Access-Control-Allow-Origin","*");
+  res.setHeader("Access-Control-Allow-Methods","GET,POST,PUT,PATCH,DELETE");
+  res.setHeader("Access-Control-Allow-Headers","Content-Type,Authorization");
+  next();
+  
+});
 
 //api ProductType
 const ProductType=require('./router/productType');
@@ -37,10 +49,6 @@ app.use('/attributeValue',AttributeValue);
 
 
 
-app.use(express.static('client/build'));
-app.get("*",cors(),(req,res)=>{
-  res.sendFile(`${__dirname}/client/build/index.html`)
-})
 
 
 

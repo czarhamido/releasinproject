@@ -1,5 +1,6 @@
 import { createSlice ,createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+const uri='mongodb+srv://czar:0698115172@prog.23wn0.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 const initialState = {
   data:[]
 };
@@ -7,7 +8,7 @@ const initialState = {
 export const getProdcut= createAsyncThunk(
     'products/getProdcuts',
     async () =>{
-        const response =await axios.get("mongodb+srv://ahmeidi:0698115172hamido@main.rttby.mongodb.net/myFirstDatabase?retryWrites=true&w=majority/product");
+        const response =await axios.get(`${uri}/product`);
         return response.data;
     }
 )
@@ -16,7 +17,7 @@ export const CreatProdcuts= createAsyncThunk(
   'products/CreatProdcuts',
   async (data) =>{
 
-      const response =await axios.post("mongodb+srv://ahmeidi:0698115172hamido@main.rttby.mongodb.net/myFirstDatabase?retryWrites=true&w=majority/product",data);
+      const response =await axios.post(`${uri}/product`,data);
       return response.JSON().data;
   }
 )
@@ -25,7 +26,7 @@ export const UpdateProdcuts= createAsyncThunk(
   'products/UpdateProdcuts',
   async (data) =>{
       console.log(JSON.parse(data).id);
-    const response= await axios.patch(`mongodb+srv://ahmeidi:0698115172hamido@main.rttby.mongodb.net/myFirstDatabase?retryWrites=true&w=majority/product/${JSON.parse(data).id}`,{
+    const response= await axios.patch(`${uri}/product/${JSON.parse(data).id}`,{
       name:JSON.parse(data).name,
       productType:JSON.parse(data).productType,
       assignedAttributes:JSON.parse(data).assignedAttributes
