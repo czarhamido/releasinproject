@@ -1,0 +1,8 @@
+
+PATCH http://localhost:8000/producttype/6223331b1038a3769bca86e4
+Content-Type: application/json
+
+{
+    "name":"111",
+    "attributes":["qr","pcr1"]
+}
